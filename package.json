@@ -1,0 +1,46 @@
+{
+  "name": "currency-math",
+  "version": "0.1.0",
+  "description": "Safe money arithmetic with BigInt, locale-aware formatting, and pluggable currency conversion.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters/index.d.ts",
+      "import": "./dist/adapters/index.mjs",
+      "require": "./dist/adapters/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts src/adapters/index.ts --format cjs,esm --dts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tsup": "^8.0.0",
+    "vitest": "^4.1.7",
+    "@types/node": "^20.0.0"
+  },
+  "keywords": ["money", "currency", "bigint", "finance", "intl", "formatting", "safe-math"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/currency-math"
+  },
+  "homepage": "https://github.com/your-org/currency-math#readme",
+  "bugs": {
+    "url": "https://github.com/your-org/currency-math/issues"
+  },
+  "engines": { "node": ">=18.0.0" }
+}
