@@ -1,6 +1,6 @@
 {
   "name": "@pravoobi/currency-math",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Safe money arithmetic with BigInt, locale-aware formatting, and pluggable currency conversion.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
