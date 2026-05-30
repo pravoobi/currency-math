@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/%40pravoobi%2Fcurrency-math)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/%40pravoobi%2Fcurrency-math?label=gzipped&color=green)
-![license](https://img.shields.io/npm/l/%40pravoobi%2Fcurrency-math)
+![license](https://img.shields.io/badge/license-MIT-blue)
 
 Safe money arithmetic for JavaScript/TypeScript. Backed by `BigInt` — floating point bugs are impossible by design.
 
