@@ -1,5 +1,5 @@
 {
-  "name": "currency-math",
+  "name": "@pravoobi/currency-math",
   "version": "0.1.0",
   "description": "Safe money arithmetic with BigInt, locale-aware formatting, and pluggable currency conversion.",
   "main": "./dist/index.js",
@@ -36,7 +36,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pravoobi/currency-math"
+    "url": "git+https://github.com/pravoobi/currency-math.git"
   },
   "homepage": "https://github.com/pravoobi/currency-math#readme",
   "bugs": {

@@ -1,8 +1,8 @@
 # currency-math
 
-![npm](https://img.shields.io/npm/v/currency-math)
-![bundle size](https://img.shields.io/bundlephobia/minzip/currency-math?label=gzipped&color=green)
-![license](https://img.shields.io/npm/l/currency-math)
+![npm](https://img.shields.io/npm/v/%40pravoobi%2Fcurrency-math)
+![bundle size](https://img.shields.io/bundlephobia/minzip/%40pravoobi%2Fcurrency-math?label=gzipped&color=green)
+![license](https://img.shields.io/npm/l/%40pravoobi%2Fcurrency-math)
 
 Safe money arithmetic for JavaScript/TypeScript. Backed by `BigInt` — floating point bugs are impossible by design.
 
@@ -19,7 +19,7 @@ Safe money arithmetic for JavaScript/TypeScript. Backed by `BigInt` — floating
 
 ```ts
 // currency-math
-import { money, add, multiply, format } from 'currency-math'
+import { money, add, multiply, format } from '@pravoobi/currency-math'
 
 add(money(0.1, 'USD'), money(0.2, 'USD'))    // { amount: 30n, currency: 'USD' } ← exact
 multiply(money(19.99, 'USD'), 3)             // { amount: 5997n, currency: 'USD' } ← exact
@@ -32,11 +32,11 @@ All values are stored as `BigInt` in the smallest currency unit (cents, paise, s
 ## Quick start
 
 ```bash
-npm install currency-math
+npm install @pravoobi/currency-math
 ```
 
 ```ts
-import { money, add, multiply, format, allocate } from 'currency-math'
+import { money, add, multiply, format, allocate } from '@pravoobi/currency-math'
 
 const price   = money(19.99, 'USD')
 const qty     = multiply(price, 3)               // $59.97
@@ -177,8 +177,8 @@ Pass `{ rounding: RoundingMode.HALF_UP }` as the third argument to `multiply()` 
 ### Frankfurter (free, ECB rates, no API key)
 
 ```ts
-import { setConverter } from 'currency-math'
-import { frankfurterAdapter } from 'currency-math/adapters'
+import { setConverter } from '@pravoobi/currency-math'
+import { frankfurterAdapter } from '@pravoobi/currency-math/adapters'
 
 setConverter(frankfurterAdapter())
 
@@ -188,7 +188,7 @@ const eur = await convert(money(100, 'USD'), 'EUR')
 ### Open Exchange Rates
 
 ```ts
-import { openExchangeAdapter } from 'currency-math/adapters'
+import { openExchangeAdapter } from '@pravoobi/currency-math/adapters'
 
 setConverter(openExchangeAdapter({ appId: 'YOUR_APP_ID' }))
 ```
@@ -196,8 +196,8 @@ setConverter(openExchangeAdapter({ appId: 'YOUR_APP_ID' }))
 ### Adding a TTL cache
 
 ```ts
-import { withCache } from 'currency-math/adapters'
-import { frankfurterAdapter } from 'currency-math/adapters'
+import { withCache } from '@pravoobi/currency-math/adapters'
+import { frankfurterAdapter } from '@pravoobi/currency-math/adapters'
 
 setConverter(withCache(frankfurterAdapter(), { ttlSeconds: 3600 }))
 ```
@@ -247,7 +247,7 @@ const [x, y] = allocate(money(0.01, 'USD'), [1, 1])
 ### JSON API (REST / tRPC)
 
 ```ts
-import { serialize, deserialize } from 'currency-math'
+import { serialize, deserialize } from '@pravoobi/currency-math'
 
 // Outgoing response
 const payload = serialize(money(19.99, 'USD'))
@@ -261,7 +261,7 @@ const m = deserialize({ amount: "1999", currency: "USD" })
 ### PostgreSQL / Prisma (BIGINT column)
 
 ```ts
-import { toStorageInt, fromStorageInt } from 'currency-math'
+import { toStorageInt, fromStorageInt } from '@pravoobi/currency-math'
 
 // Write
 await prisma.order.create({
@@ -276,7 +276,7 @@ const total = fromStorageInt(BigInt(order.totalAmount), order.totalCurrency)
 ### TEXT / VARCHAR column
 
 ```ts
-import { toStorageString, fromStorageString } from 'currency-math'
+import { toStorageString, fromStorageString } from '@pravoobi/currency-math'
 
 const str = toStorageString(money(19.99, 'USD')) // "1999"
 const m   = fromStorageString('1999', 'USD')
@@ -286,7 +286,7 @@ const m   = fromStorageString('1999', 'USD')
 
 ## Non-standard decimal currencies
 
-Most currencies have 2 decimal places, but several don't. `currency-math` handles all of them correctly.
+Most currencies have 2 decimal places, but several don't. `@pravoobi/currency-math` handles all of them correctly.
 
 ### Zero-decimal currencies (amount IS the smallest unit)
 
@@ -331,7 +331,7 @@ ETH's 18-decimal precision stays exact as `BigInt` — it is never stored as a f
 Register any currency code not in the built-in registry:
 
 ```ts
-import { registerCurrency, money, format } from 'currency-math'
+import { registerCurrency, money, format } from '@pravoobi/currency-math'
 
 registerCurrency({
   code: 'ACME',
@@ -350,4 +350,4 @@ Use this for internal accounting units, loyalty points, or fictional currencies 
 
 ## Zero dependencies
 
-`currency-math` has no runtime dependencies. It uses native `BigInt` for arithmetic and native `Intl.NumberFormat` for formatting.
+`@pravoobi/currency-math` has no runtime dependencies. It uses native `BigInt` for arithmetic and native `Intl.NumberFormat` for formatting.
