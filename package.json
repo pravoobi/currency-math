@@ -36,11 +36,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/currency-math"
+    "url": "https://github.com/pravoobi/currency-math"
   },
-  "homepage": "https://github.com/your-org/currency-math#readme",
+  "homepage": "https://github.com/pravoobi/currency-math#readme",
   "bugs": {
-    "url": "https://github.com/your-org/currency-math/issues"
+    "url": "https://github.com/pravoobi/currency-math/issues"
   },
   "engines": { "node": ">=18.0.0" }
 }
